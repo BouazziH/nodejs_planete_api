@@ -10,8 +10,8 @@ let db = new sqlite3.Database(dbname, err => {
 db.run("INSERT INTO planetes(name,url) values (?,?)", ["Mars", "https://fr.wikipedia.org/wiki/Mars_%28plan%C3%A8te%29"]);
 db.run("INSERT INTO planetes(name,url) values (?,?)", ["Terre", "https://fr.wikipedia.org/wiki/Terre"]) ;
 db.run("INSERT INTO planetes(name,url) values (?,?)", ["Mercure", "https://www.stelvision.com/astro/mercure-petite-planete-grandes-decouvertes/"]); */
-db.all("SELECT * FROM planetes", (err, data) => {
+/* db.all("SELECT * FROM planetes", (err, data) => {
     if (err) throw err;
     console.log(data); 
-});
- 
+}); */
+ db.run('update planetes set url=("https://cdn.futura-sciences.com/buildsv6/images/wide1920/4/8/8/488b05cd29_121945_venus-akatsuki.jpg") where id =1 ');
