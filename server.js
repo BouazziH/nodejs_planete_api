@@ -1,7 +1,9 @@
 const express = require("express")
 const sqlite3 = require("sqlite3")
+
 //to resolve the probleme of cors 1/2
 const cors = require("cors");
+
 
 
 const app = express()
@@ -9,6 +11,10 @@ const app = express()
 app.use(cors());
 const port = 7500
 const dbname = "univers.db"
+const sqlite3 = require("sqlite3").verbose();
+const cors = require("cors");
+server.use(cors());
+
 
 let db = new sqlite3.Database(dbname, err => {
   if (err)
