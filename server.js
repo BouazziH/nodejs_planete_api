@@ -1,7 +1,12 @@
 const express = require("express")
 const sqlite3 = require("sqlite3")
+//to resolve the probleme of cors 1/2
+const cors = require("cors");
+
 
 const app = express()
+//the same 2/2
+app.use(cors());
 const port = 7500
 const dbname = "univers.db"
 
@@ -23,8 +28,17 @@ app.get('/planetes', (req, res) => {
   res.header("Content-type", "application/json")
   db.all("Select * From PLANETES", (err, data) => {
     if (err) throw err
-    res.send(JSON.stringify(data))
+    res.json(data)
   })
+//passer id en paramettre pour afficher les donnees
+  app.get('/planetes/:id', (req, res) => {
+    res.header("Content-type", "application/json")
+    db.all(`select * from PLANETES where id = ${req.params.id}`,(err,data) => {
+      if(err) throw err
+      res.send(JSON.stringify(data))
+    })
+  })
+
 })
 app.get('/planete/:planeteId', (req, res) => {
   res.header("Content-type", "application/json")
@@ -33,3 +47,5 @@ app.get('/planete/:planeteId', (req, res) => {
     res.send(JSON.stringify(data))
   })
 })
+
+
