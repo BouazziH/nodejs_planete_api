@@ -10,7 +10,9 @@ db.run("Insert into PLANETES (nom, image) values (?, ?)", ["Terre", "https://upl
 db.run("Insert into PLANETES (nom, image) values (?, ?)", ["Mercure", "https://upload.wikimedia.org/wikipedia/commons/3/30/Mercury_in_color_-_Prockter07_centered.jpg"])
 db.run("Insert into PLANETES (nom, image) values (?, ?)", ["Venus", "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg"])
 db.all("SELECT * FROM planetes", (err, data) => {
+
+
     if (err) throw err;
     console.log(data); 
-});
- 
+}); */
+ db.run('update planetes set url=("https://cdn.futura-sciences.com/buildsv6/images/wide1920/4/8/8/488b05cd29_121945_venus-akatsuki.jpg") where id =1 ');
